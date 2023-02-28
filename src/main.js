@@ -1,4 +1,4 @@
-import {Client, Events, GatewayIntentBits} from 'discord.js';
+import {Client, GatewayIntentBits} from 'discord.js';
 import vueInit from '@/core/vue';
 import dotenv from 'dotenv';
 
@@ -8,7 +8,13 @@ import { useAppStore } from '@/store/app';
 vueInit();
 dotenv.config();
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildMembers,
+    ]
+});
 const appStore = useAppStore()
 appStore.client = client;
 
