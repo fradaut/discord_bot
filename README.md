@@ -1,2 +1,4 @@
 # discord_bot
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/discordjs/discord.js?label=discord.js&logo=discord) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/Automattic/node-canvas?label=node-canvas%20) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/mrmlnc/fast-glob?label=fast-glob) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/vuejs/core?label=vue.js%20) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/vuejs/pinia?label=%20vue.js) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/vitest-dev/vitest?label=vite-node&logo=vitest)
+
 管理discord
