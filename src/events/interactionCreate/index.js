@@ -8,9 +8,10 @@ export const event = {
 };
 
 export const action = async (interaction) => {
-    if (!interaction.isChatInputCommand()) return;
-    const appStore = useAppStore();
-    const action = appStore.commandsActionMap.get(interaction.commandName);
+    if (interaction.isChatInputCommand()) {
+        const appStore = useAppStore();
+        const action = appStore.commandsActionMap.get(interaction.commandName);
 
-    await action(interaction);
+        await action(interaction);
+    }
 };
