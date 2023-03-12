@@ -18,7 +18,7 @@ export const action = async (message) => {
                 const row = new ActionRowBuilder()
                     .addComponents(
                         new ButtonBuilder()
-                            .setCustomId('Success')
+                            .setCustomId('ticketCreate')
                             .setLabel("點我")
                             .setStyle(ButtonStyle.Success),
                     );
