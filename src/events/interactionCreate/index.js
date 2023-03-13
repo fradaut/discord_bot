@@ -15,28 +15,30 @@ export const action = async (interaction) => {
 
         await action(interaction);
     }else if (interaction.isButton()) {
-        const ticketPermission = ticketPermissionCreator(interaction);
-        const ticketChannel = await interaction.guild.channels.create({
-            name: interaction.member.displayName,
-            type: ChannelType.GuildText,
-            topic: "管理員聯繫區",
-            parent: interaction.channel.parent,
-            permissionOverwrites: ticketPermission,
-            nsfw: false
-        });
+        if (interaction.customId === "ticketCreate") {
+            const ticketPermission = ticketPermissionCreator(interaction);
+            const ticketChannel = await interaction.guild.channels.create({
+                name: interaction.member.displayName,
+                type: ChannelType.GuildText,
+                topic: "管理員聯繫區",
+                parent: interaction.channel.parent,
+                permissionOverwrites: ticketPermission,
+                nsfw: false
+            });
 
-        const row = new ActionRowBuilder()
-            .addComponents(
-                new ButtonBuilder()
-                    .setCustomId('ticketDelete')
-                    .setLabel("點我")
-                    .setStyle(ButtonStyle.Success),
-            );
-        const embed = new EmbedBuilder()
-            .setColor(0x0099FF)
-            .setTitle("結束對話")
-            .setDescription("關閉該頻道.")
-        ticketChannel.send({embeds: [embed], components: [row]});
+            const row = new ActionRowBuilder()
+                .addComponents(
+                    new ButtonBuilder()
+                        .setCustomId('ticketDelete')
+                        .setLabel("點我")
+                        .setStyle(ButtonStyle.Success),
+                );
+            const embed = new EmbedBuilder()
+                .setColor(0x0099FF)
+                .setTitle("結束對話")
+                .setDescription("關閉該頻道.")
+            ticketChannel.send({embeds: [embed], components: [row]});
+        }
         
     }
 };
